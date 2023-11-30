@@ -71,12 +71,12 @@ const syncAndSeed = async () => {
       "9",
       "1.5",
       "Billy Bob",
-      "12152000",
-      "06122004",
+      "2004/12/13",
+      "2008/06/04",
       "true",
       "1"
     );
-    console.log("Student Created");
+    console.log(`Student Created`);
 
     await createTeacher("Billy Jean", "201", "false", "true", "1");
 
