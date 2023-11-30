@@ -62,8 +62,8 @@ const syncAndSeed = async () => {
     await createTables();
     console.log(`CREATED THE TABLES!`);
 
-    await createSchool(`Hard Knocks`);
-    await createSchool(`Tough Times`);
+    await createSchool("Hard Knocks", "Deal With It", "TN", "38888", "true");
+    await createSchool("Tough Times", "Temporary", "TX", "12345", "false");
     console.log("SCHOOL CREATED");
 
     client.end();
