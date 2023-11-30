@@ -19,32 +19,32 @@ const createTables = async () => {
   try {
     await client.query(`
       CREATE TABLE school (
-      id SERIAL PRIMARY KEY,
-      name VARCHAR(30), 
-      city VARCHAR(30),
-      state CHAR(2),
-      zip_code INTEGER,
-      is_accredited BOOLEAN
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(30), 
+        city VARCHAR(30),
+        state CHAR(2),
+        zip_code INTEGER,
+        is_accredited BOOLEAN
       );
 
       CREATE TABLE students (
-      id SERIAL PRIMARY KEY,
-      grade_level INTEGER,
-      gpa DECIMAL(1,2),
-      name VARCHAR(30),
-      start_date DATE,
-      graduation_date DATE,
-      has_required_classes BOOLEAN,
-      school_id INTEGER REFERENCES school(id)
+        id SERIAL PRIMARY KEY,
+        grade_level INTEGER,
+        gpa DECIMAL(3,2),  -- Adjusted precision and scale for GPA
+        name VARCHAR(30),
+        start_date DATE,
+        graduation_date DATE,
+        has_required_classes BOOLEAN,
+        school_id INTEGER REFERENCES school(id)
       );
 
       CREATE TABLE teachers (
-      id SERIAL PRIMARY KEY,
-      name VARCHAR(30),
-      room_number INTEGER,
-      is_new BOOLEAN,
-      is_coach BOOLEAN,
-      school_id INTEGER REFERENCES school(id)
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(30),
+        room_number INTEGER,
+        is_new BOOLEAN,
+        is_coach BOOLEAN,
+        school_id INTEGER REFERENCES school(id)
       );
     `);
   } catch (err) {
