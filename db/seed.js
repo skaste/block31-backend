@@ -1,6 +1,7 @@
 const client = require("./client.js");
 const { createSchool } = require("./school.js");
 const { createStudent } = require("./students.js");
+const { createTeacher } = require("./teachers.js");
 
 const dropTables = async () => {
   try {
@@ -65,6 +66,19 @@ const syncAndSeed = async () => {
     await createSchool("Hard Knocks", "Deal With It", "TN", "38888", "true");
     await createSchool("Tough Times", "Temporary", "TX", "12345", "false");
     console.log("SCHOOL CREATED");
+
+    await createStudent(
+      "9",
+      "1.5",
+      "Billy Bob",
+      "12152000",
+      "06122004",
+      "true",
+      "1"
+    );
+    console.log("Student Created");
+
+    await createTeacher("Billy Jean", "201", "false", "true", "1");
 
     client.end();
   } catch (err) {
